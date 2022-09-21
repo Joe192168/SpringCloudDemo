@@ -1,0 +1,6 @@
+com\joe\springcloud\producer\entity\User.class
+com\joe\springcloud\producer\service\impl\UserServiceImpl.class
+com\joe\springcloud\producer\service\UserService.class
+com\joe\springcloud\producer\common\tools\Result.class
+com\joe\springcloud\producer\controller\UserController.class
+com\joe\springcloud\producer\mapper\UserMapper.class

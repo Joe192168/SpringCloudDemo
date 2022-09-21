@@ -1,0 +1,4 @@
+com\joe\springcloud\consumer\controller\ConsumerController.class
+com\joe\springcloud\consumer\config\ApplicationConfig.class
+com\joe\springcloud\consumer\tools\Result.class
+com\joe\springcloud\consumer\entity\User.class
