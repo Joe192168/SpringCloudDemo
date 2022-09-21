@@ -11,6 +11,16 @@
         <module>producer_8000</module>
         <module>consumer_9000</module>
         <module>common</module>
+        <module>eureka_server_7000</module>
+        <module>eureka_client_producer_8001</module>
+        <module>eureka_client_consumer_9001</module>
+        <module>eureka_server_7001</module>
+        <module>eureka_server_7002</module>
+        <module>eureka_server_7003</module>
+        <module>eureka_client_producer_8002</module>
+        <module>eureka_client_producer_8003</module>
+        <module>eureka_client_producer_8004</module>
+        <module>eureka_client_consumer_9002</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,6 +31,7 @@
         <httpcore.version>4.4.13</httpcore.version>
         <lombok.version>1.18.12</lombok.version>
         <java.version>1.8</java.version>
+        <springcloud.version>Hoxton.SR9</springcloud.version>
     </properties>
 
     <!-- springboot -->
@@ -32,6 +43,15 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- mybatis-plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
