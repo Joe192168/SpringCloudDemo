@@ -1,4 +1,4 @@
-package com.joe.springcloud.producer.common.tools;
+package com.joe.springcloud.common.tools;
 
 import lombok.Data;
 import org.apache.http.HttpStatus;

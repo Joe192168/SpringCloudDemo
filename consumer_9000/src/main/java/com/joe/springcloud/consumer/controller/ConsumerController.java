@@ -1,7 +1,7 @@
 package com.joe.springcloud.consumer.controller;
 
 import com.joe.springcloud.consumer.entity.User;
-import com.joe.springcloud.consumer.tools.Result;
+import com.joe.springcloud.common.tools.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;

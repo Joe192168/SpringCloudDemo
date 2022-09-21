@@ -1,6 +1,6 @@
 package com.joe.springcloud.producer.controller;
 
-import com.joe.springcloud.producer.common.tools.Result;
+import com.joe.springcloud.common.tools.Result;
 import com.joe.springcloud.producer.entity.User;
 import com.joe.springcloud.producer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
