@@ -1,0 +1,15 @@
+server:
+  port: 8007
+spring:
+  application:
+    name: zookeeper-client-producer
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.0.233:3306/producer?useUnicode=true&characterEncoding=utf8
+  cloud:
+    # zookeeper 配置
+    zookeeper:
+      # 配置连接 zookeeper 服务器的地址
+      connect-string: 192.168.0.233:2182, 192.168.0.233:2183, 192.168.0.233:2184

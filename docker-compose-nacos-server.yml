@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  nacos:
+    image: nacos/nacos-server:1.2.0
+    container_name: nacos
+    restart: always
+    #经过查询：nacos其实在1.2.0版本的时候，就已经开始支持了mysql8.0版本驱动。但是默认还是使用的mysql5.x.0版本
+    environment:
+      - MODE=standalone
+      - TZ=Asia/Shanghai
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=192.168.0.233
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_DB_NAME=nacos_config
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=123456
+      - JVM_XMS=50m
+      - JVM_MMS=50m
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+    ports:
+      - 8848:8848

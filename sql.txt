@@ -1,0 +1,12 @@
+【建一个表（producer_user），SQL 如下：】
+DROP DATABASE IF EXISTS producer;
+
+CREATE DATABASE producer;
+
+USE producer;
+
+CREATE TABLE producer_user(
+    id BIGINT(20) AUTO_INCREMENT COMMENT 'ID',
+    name VARCHAR(100) COMMENT 'Name',
+    PRIMARY KEY (id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT 'user';

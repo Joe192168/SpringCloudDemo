@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  mysql:
+    container_name: nacos-mysql
+    image: nacos/nacos-mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=nacos_devtest
+      - MYSQL_USER=nacos
+      - MYSQL_PASSWORD=nacos
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/log:/var/log/mysql
+    ports:
+      - "3307:3306"
+  nacos:
+    image: nacos/nacos-server:1.4.1
+    container_name: nacos
+    restart: always
+    environment:
+      - MODE=standalone
+      - TZ=Asia/Shanghai
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=192.168.0.233
+      - MYSQL_SERVICE_PORT=3307
+      - MYSQL_SERVICE_DB_NAME=nacos_devtest
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=123456
+      - JVM_XMS=50m
+      - JVM_MMS=50m
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+    depends_on:
+      - mysql
+    ports:
+      - 8848:8848

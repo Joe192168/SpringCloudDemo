@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  # 设置服务名
+  zookeeper_service1:
+    # 配置所使用的镜像
+    image: zookeeper
+    # 容器总是重启
+    restart: always
+    # 容器名称
+    container_name: zookeeper_service1
+    #与宿主机的端口映射
+    ports:
+      - 2181:2181
+    #容器目录映射
+    volumes:
+      - /usr/mydata/zookeeper/zookeeper_service1/data:/data
+      - /usr/mydata/zookeeper/zookeeper_service1/datalog:/datalog

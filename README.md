@@ -78,3 +78,43 @@ http://localhost:9002/consumer/user/get/1
 ##四、配置 actuator、服务发现、自我保护机制
 （1）配置 actuator
 　　用于监控 springboot 应用，比如：查看状态、健康检查等。
+
+五、Zookeeper注册与发现
+1、集群搭建
+
+六、Consul注册与发现
+
+七、Nacos注册与发现
+【Nacos：】
+    Nacos 即 Dynamic Naming and Configuration Service（动态命名与配置服务）。由 Naming 前两个字母，Configuration 前两个字母，以及 Service 首字母组成。
+    Nacos 是一个更易于构建云原生应用的动态服务发现、配置管理 以及 服务管理平台。
+简单的理解：
+    Nacos 就是 注册中心 + 配置中心。 
+    即 Nacos = Eureka + Config + Bus。
+    
+【相关地址：】
+    https://nacos.io/zh-cn/index.html
+    https://github.com/alibaba/nacos
+ 
+【如何使用 Nacos：】
+    Nacos 分为 Server、Client，其中 Server 作为注册中心以及配置中心，可以独立部署。
+    而想要使用 Nacos，仅需在 微服务当中引入 client 相关依赖即可。
+其中：
+    Server 最新版本为 1.4.1，根据实际情况可以自行选择版本。
+    使用注册中心功能，需要引入 spring-cloud-starter-alibaba-nacos-discovery 依赖。
+    使用配置中心功能，需要引入 spring-cloud-starter-alibaba-nacos-config 依赖。
+注：
+    下载地址：https://github.com/alibaba/nacos/releases/download/1.4.1/nacos-server-1.4.1.tar.gz
+    
+【构建数据表：】
+    进入解压后的 nacos 的 conf 目录，可以看到有 nacos-mysql.sql 文件。
+    连接上 MySQL，新建一个数据库（nacos_config），并执行 nacos-mysql.sql 文件中的 SQL 语句。
+注：
+    可以直接使用官方提供的 nacos-mysql.sql 文件。
+    https://github.com/alibaba/nacos/blob/master/distribution/conf/nacos-mysql.sql
+   
+经过查询：1.4.0以下使用的mysql驱动是8.0以下的，1.4.0以上使用的驱动就是8.0以上的，使nacos和数据库的版本对应。
+
+##docker命令
+docker-compose -f 指定某个docker-compose.yml文件 up -d
+

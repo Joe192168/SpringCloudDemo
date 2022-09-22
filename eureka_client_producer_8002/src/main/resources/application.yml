@@ -23,3 +23,8 @@ eureka:
     service-url:
       # 指向 注册中心 地址，注册到 集群所有的 注册中心。
       defaultZone: http://eureka.server.7001.com:7001/eureka,http://eureka.server.7002.com:7002/eureka,http://eureka.server.7003.com:7003/eureka
+management:
+  endpoint:
+    health:
+      #显示健康具体信息，默认不会显示详细信息
+      show-details: always
