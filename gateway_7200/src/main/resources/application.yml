@@ -1,0 +1,51 @@
+server:
+  port: 7200
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        # 配置 nacos 地址
+        server-addr: 192.168.0.233:8848
+    # 网关配置
+    gateway:
+      # 配置路由规则
+      routes:
+        # 路由唯一 id 名
+        #- id: gateway_route
+          # 断言为 true 时，需执行的 路由地址
+          #uri: http://localhost:7101
+          # 定义断言，即 地址匹配 规则
+          #predicates:
+            # 当访问 http://localhost:7200/naocs/info 时，此时断言匹配成功，根据 uri 将跳转到 http://localhost:7101/nacos/info
+            #- Path=/nacos/info
+        #- id: gateway_route2
+          #uri: https://www.baidu.com/
+          #predicates:
+            #- Path=/
+        #- id: gateway_route3
+          # lb 表示负载均衡
+          #uri: lb://nacos-client
+          #predicates:
+            # 配置多个地址时，可以使用 逗号 隔开
+            #- Path=/nacos/info,/nacos/discovery
+            #Before 表示在 指定时间（datetime） 前的请求 才能匹配路由
+            #- Before=2022-09-28T14:48:23.606+08:00[Asia/Shanghai]
+            #After 表示在 指定时间（datetime） 后的请求 才能匹配路由
+            #- After=2022-09-28T14:48:23.606+08:00[Asia/Shanghai]
+            #Between 表示在 指定时间段（datetime1,datetime2） 内的请求 才能匹配路由
+            #- Between=2022-03-31T10:40:00.706+08:00[Asia/Shanghai],2022-09-28T14:50:23.606+08:00[Asia/Shanghai]
+            #- Query=green,test.
+            #- Method=GET,POST
+            #- Host=**.lyh.com
+            #- Header=X-Request-Id, \d+
+            #- Cookie=username,jarry
+        - id: gateway_route4
+          uri: http://localhost:7101
+          predicates:
+            - Path=/nacos/test/{username}
+          filters:
+            - AddRequestParameter=password,{username}
+            - AddRequestParameter=email,jarry@163.com
